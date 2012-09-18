@@ -12,15 +12,20 @@ define ['framework/Model'], (Model) ->
       @aggregate()
 
     aggregate: ->
-      @set('itemDetails',@getItemDetails())
+      @set('_itemDetails',@getItemDetails())
 
     getItemDetails: ->
       itemDetails = []
       attributes = @toJSON()
       for own name, value of attributes
-        if(name.indexOf('Type') == -1)
+        if(name.indexOf('_') == -1)
           itemDetails.push({
             name: name,
             value: value
           })
       return itemDetails
+
+    setAsSelected: ->
+      @collection.resetSelections()
+      @set('_selected',true)
+      @aggregate()

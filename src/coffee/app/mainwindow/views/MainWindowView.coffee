@@ -10,13 +10,15 @@ define ['framework/View','app/mainwindow/templates/MainWindowTemplate','app/tool
       @renderToolbar()
 
     renderToolbar: ->
-      toolbarView = new ToolbarView(el: @$('#toolbar'))
-      toolbarView.render()
-      toolbarView.on('addElement',@addElementToCanvas,@)
+      @toolbarView = new ToolbarView(el: @$('#toolbar'))
+      @toolbarView.render()
+      @toolbarView.on('addElement',@addElementToCanvas,@)
 
     addElementToCanvas: (model)->
-      model.set('displayType','Canvas',{trigger: false});
-      elementView = new ElementView(el: @$('#canvas'), model: model)
-      elementView.render()
+      model.set('_displayType','Canvas',{trigger: false});
+      elementView = new ElementView(model: model)
+      elementView.on 'selected',(model)=>
+        @toolbarView.setCurrentSelectedElement(model)
+      $(elementView.render().el).appendTo(@$('#canvas'))
       model.on 'change', =>
         elementView.render()

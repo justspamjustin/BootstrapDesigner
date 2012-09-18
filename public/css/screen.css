@@ -21,6 +21,10 @@
 #main #canvas .element {
   position: absolute;
 }
+/* line 13, ../../src/sass/app/mainwindowview/mainwindowview.scss */
+#main #canvas .element.selected {
+  outline: dashed 1px #000;
+}
 
 /* line 2, ../../src/sass/app/toolbar/toolbar.scss */
 #toolbar input {

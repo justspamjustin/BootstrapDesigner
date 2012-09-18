@@ -17,10 +17,10 @@ define ['framework/View','app/toolbar/templates/ToolbarTemplate','app/element/co
 
     renderElementViews: ->
       elementCollection = new ElementCollection([
-        {elementType:'PrimaryButton',displayType:'Preview',text:'Hello World'},
-        {elementType:'DefaultButton',displayType:'Preview',text:'Hello World'},
-        {elementType:'DefaultInput',displayType:'Preview',placeholderText:'Hello World'}
-        {elementType:'Modal',displayType:'Preview',header:'Hello World', body:'One fine body...', cancelText: 'close',primaryButtonText: 'Save Changes'}
+        {_elementType:'PrimaryButton',_displayType:'Preview',text:'Hello World'},
+        {_elementType:'DefaultButton',_displayType:'Preview',text:'Hello World'},
+        {_elementType:'DefaultInput',_displayType:'Preview',placeholderText:'Hello World'}
+        {_elementType:'Modal',_displayType:'Preview',header:'Hello World', body:'One fine body...', cancelText: 'close',primaryButtonText: 'Save Changes'}
       ])
       elementCollection.each (model)=>
         @renderElementView(model)
@@ -30,6 +30,7 @@ define ['framework/View','app/toolbar/templates/ToolbarTemplate','app/element/co
       @elementViews[model.get('id')] = elementView
       elementView.render()
       elementView.on('addElement',@addElementToCanvas,@)
+      
 
     addElementToCanvas: (model)->
       @setCurrentSelectedElement(model)

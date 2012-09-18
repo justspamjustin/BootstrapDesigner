@@ -25,25 +25,26 @@
       };
 
       MainWindowView.prototype.renderToolbar = function() {
-        var toolbarView;
-        toolbarView = new ToolbarView({
+        this.toolbarView = new ToolbarView({
           el: this.$('#toolbar')
         });
-        toolbarView.render();
-        return toolbarView.on('addElement', this.addElementToCanvas, this);
+        this.toolbarView.render();
+        return this.toolbarView.on('addElement', this.addElementToCanvas, this);
       };
 
       MainWindowView.prototype.addElementToCanvas = function(model) {
         var elementView,
           _this = this;
-        model.set('displayType', 'Canvas', {
+        model.set('_displayType', 'Canvas', {
           trigger: false
         });
         elementView = new ElementView({
-          el: this.$('#canvas'),
           model: model
         });
-        elementView.render();
+        elementView.on('selected', function(model) {
+          return _this.toolbarView.setCurrentSelectedElement(model);
+        });
+        $(elementView.render().el).appendTo(this.$('#canvas'));
         return model.on('change', function() {
           return elementView.render();
         });

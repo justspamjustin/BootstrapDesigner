@@ -4,7 +4,7 @@ define ['framework/Template'], (Template) ->
     <div class="well sidebar-nav">
       <ul class="nav nav-list element-details">
         <li class="nav-header">Element Details</li>
-        {{#each itemDetails}}
+        {{#each _itemDetails}}
         <li>
           <div class="input-prepend">
             <span class="add-on">{{name}}</span><input class="span2" size="20" type="text" value="{{value}}" data-input-name="{{name}}"/>

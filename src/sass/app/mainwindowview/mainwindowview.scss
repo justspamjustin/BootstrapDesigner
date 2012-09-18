@@ -10,6 +10,9 @@
     position: relative;
     .element {
       position: absolute;
+      &.selected {
+        outline: dashed 1px #000;
+      }
     }
   }
 }
