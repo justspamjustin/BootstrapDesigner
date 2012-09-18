@@ -1,0 +1,1 @@
+define ['framework/Model'], (Model)->
