@@ -27,7 +27,16 @@
   outline: dashed 1px #000;
 }
 
-/* line 2, ../../src/sass/app/toolbar/toolbar.scss */
-#toolbar input {
-  width: 50px;
+/* line 3, ../../src/sass/app/toolbar/toolbar.scss */
+#toolbar .element-details .add-on {
+  font-size: 12px;
+  padding: 0 3px;
+  width: 40px;
+  overflow: hidden;
+}
+/* line 9, ../../src/sass/app/toolbar/toolbar.scss */
+#toolbar .element-details input {
+  font-size: 12px;
+  width: 70px;
+  padding: 0 3px;
 }
