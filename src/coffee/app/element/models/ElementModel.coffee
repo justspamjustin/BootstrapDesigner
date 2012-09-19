@@ -1,10 +1,11 @@
 define ['framework/Model'], (Model) ->
   class ElementModel extends Model
     defaults:
-      x: 100,
-      y: 100,
+      left: 100,
+      top: 100,
       width: 'inherit',
       height: 'inherit',
+      'font-size': 14,
       'z-index':0
 
     initialize: (opts)->

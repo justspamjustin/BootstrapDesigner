@@ -1,5 +1,19 @@
 #toolbar {
-  input {
-    width: 50px;
+  .element-details {
+    .add-on {
+      font-size: 12px;
+      padding:0 3px;
+      width: 50px;
+      overflow: hidden;
+    }
+    input {
+      font-size: 12px;
+      width: 70px;
+      padding:0 3px;
+    }
+    .remove-element {
+      font-size: 12px;
+      padding: 0 4px;
+    }
   }
 }

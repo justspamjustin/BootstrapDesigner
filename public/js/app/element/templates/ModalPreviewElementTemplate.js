@@ -12,7 +12,7 @@
         return _Class.__super__.constructor.apply(this, arguments);
       }
 
-      _Class.prototype.template = "<div class=\"modal element\" style=\"position: relative; top: {{top}}; left: {{left}}; margin: 0 auto 20px; z-index: {{z-index}}; max-width: 100%;width:{{width}};height:{{height}}\">\n  <div class=\"modal-header\">\n    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>\n    <h3>{{header}}</h3>\n  </div>\n  <div class=\"modal-body\">\n    <p>{{body}}</p>\n  </div>\n  <div class=\"modal-footer\">\n    <a href=\"#\" class=\"btn\">{{cancelText}}</a>\n    <a href=\"#\" class=\"btn btn-primary\">{{primaryButtonText}}</a>\n  </div>\n</div>";
+      _Class.prototype.template = "<div class=\"btn btn-primary\">Add Modal</div>";
 
       return _Class;
 

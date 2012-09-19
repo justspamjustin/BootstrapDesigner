@@ -13,7 +13,7 @@
         return PrimaryButtonElementTemplate.__super__.constructor.apply(this, arguments);
       }
 
-      PrimaryButtonElementTemplate.prototype.template = "<div class=\"element primary-button btn\" style=\"width:{{width}};font-size:{{fontSize}};height:{{height}};top:{{top}};left:{{left}};z-index:{{z-index}};\">{{text}}</div>";
+      PrimaryButtonElementTemplate.prototype.template = "<div class=\"element primary-button btn btn-primary\">{{text}}</div>";
 
       return PrimaryButtonElementTemplate;
 

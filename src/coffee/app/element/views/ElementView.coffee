@@ -4,6 +4,7 @@ define ['framework/View'], (View) ->
     initialize: (opts)->
       View.prototype.initialize.call(@,opts)
       @model.on('change:_selected',@render,@)
+      @model.on('remove',@remove,@)
 
     render: ->
       require ['app/element/templates/'+@model.get('_elementType')+@model.get('_displayType')+'ElementTemplate'], (ElementTemplate) =>
@@ -17,10 +18,11 @@ define ['framework/View'], (View) ->
 
     updatePosition: ->
       @$('.element').css({
-        left: @parseForNumber(@model.get('x')),
-        top: @parseForNumber(@model.get('y')),
+        left: @parseForNumber(@model.get('left')),
+        top: @parseForNumber(@model.get('top')),
         width: @parseForNumber(@model.get('width')),
         height: @parseForNumber(@model.get('height')),
+        'font-size': @parseForNumber(@model.get('font-size')),
         'z-index': @model.get('z-index')
       })
       if(@model.get('_selected'))

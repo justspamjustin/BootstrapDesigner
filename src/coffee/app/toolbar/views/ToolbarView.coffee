@@ -30,7 +30,6 @@ define ['framework/View','app/toolbar/templates/ToolbarTemplate','app/element/co
       @elementViews[model.get('id')] = elementView
       elementView.render()
       elementView.on('addElement',@addElementToCanvas,@)
-      
 
     addElementToCanvas: (model)->
       @setCurrentSelectedElement(model)
@@ -41,10 +40,14 @@ define ['framework/View','app/toolbar/templates/ToolbarTemplate','app/element/co
       @render()
 
     events:
-      'keyup input': 'onKeyupInput'
+      'keyup input': 'onKeyupInput',
+      'click .remove-element': 'onRemoveElement'
 
     onKeyupInput: (e)->
       $el = $(e.currentTarget)
       name = $el.attr('data-input-name')
       value = $el.val()
       @selectedElementModel.set(name,value)
+
+    onRemoveElement: ->
+      @selectedElementModel.trigger('remove')
