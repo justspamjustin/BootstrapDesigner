@@ -34,14 +34,16 @@ define ['framework/View'], (View) ->
         return value
 
     events:
-      'click': 'onClickElement',
-      'mousedown': 'onMouseDownElement'
+      'click': 'onClick',
+      'mousedown .element': 'onMouseDownElement'
 
-    onClickElement: (e)->
+    onClick: (e)->
       if(@model.get('_displayType') == 'Preview')
         @trigger('addElement',@model)
 
     onMouseDownElement: ->
       if(@model.get('_displayType') == 'Canvas')
-        @model.setAsSelected()
-        @trigger('selected',@model)
+        @$('.element').addClass('dragging')
+        @trigger('dragging',@model)
+
+        
