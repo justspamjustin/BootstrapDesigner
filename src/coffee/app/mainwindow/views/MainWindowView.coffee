@@ -42,8 +42,8 @@ define ['framework/View','app/mainwindow/templates/MainWindowTemplate','app/tool
       if(@$('.dragging').length > 0)
         top = e.clientY - @$('#canvas').position().top
         left = e.clientX - @$('#canvas').position().left
-        @draggingModel.set('y',top)
-        @draggingModel.set('x',left)
+        @draggingModel.set('top',top)
+        @draggingModel.set('left',left)
         @$('.dragging').removeClass('dragging')
         @draggingModel.setAsSelected()
         @toolbarView.setCurrentSelectedElement(@draggingModel)

@@ -15,7 +15,8 @@
 
       ElementView.prototype.initialize = function(opts) {
         View.prototype.initialize.call(this, opts);
-        return this.model.on('change:_selected', this.render, this);
+        this.model.on('change:_selected', this.render, this);
+        return this.model.on('remove', this.remove, this);
       };
 
       ElementView.prototype.render = function() {
@@ -35,8 +36,8 @@
 
       ElementView.prototype.updatePosition = function() {
         this.$('.element').css({
-          left: this.parseForNumber(this.model.get('x')),
-          top: this.parseForNumber(this.model.get('y')),
+          left: this.parseForNumber(this.model.get('left')),
+          top: this.parseForNumber(this.model.get('top')),
           width: this.parseForNumber(this.model.get('width')),
           height: this.parseForNumber(this.model.get('height')),
           'z-index': this.model.get('z-index')

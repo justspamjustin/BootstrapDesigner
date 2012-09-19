@@ -74,8 +74,8 @@
         if (this.$('.dragging').length > 0) {
           top = e.clientY - this.$('#canvas').position().top;
           left = e.clientX - this.$('#canvas').position().left;
-          this.draggingModel.set('y', top);
-          this.draggingModel.set('x', left);
+          this.draggingModel.set('top', top);
+          this.draggingModel.set('left', left);
           this.$('.dragging').removeClass('dragging');
           this.draggingModel.setAsSelected();
           return this.toolbarView.setCurrentSelectedElement(this.draggingModel);

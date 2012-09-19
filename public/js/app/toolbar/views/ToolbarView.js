@@ -83,7 +83,8 @@
       };
 
       ToolBarView.prototype.events = {
-        'keyup input': 'onKeyupInput'
+        'keyup input': 'onKeyupInput',
+        'click .remove-element': 'onRemoveElement'
       };
 
       ToolBarView.prototype.onKeyupInput = function(e) {
@@ -92,6 +93,10 @@
         name = $el.attr('data-input-name');
         value = $el.val();
         return this.selectedElementModel.set(name, value);
+      };
+
+      ToolBarView.prototype.onRemoveElement = function() {
+        return this.selectedElementModel.trigger('remove');
       };
 
       return ToolBarView;

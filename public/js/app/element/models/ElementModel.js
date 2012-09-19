@@ -14,8 +14,8 @@
       }
 
       ElementModel.prototype.defaults = {
-        x: 100,
-        y: 100,
+        left: 100,
+        top: 100,
         width: 'inherit',
         height: 'inherit',
         'z-index': 0

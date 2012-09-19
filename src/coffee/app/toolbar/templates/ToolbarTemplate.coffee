@@ -11,6 +11,7 @@ define ['framework/Template'], (Template) ->
           </div>
         </li>
         {{/each}}
+        <div class="btn btn-danger remove-element">Remove</div>
       </ul>
       <ul class="nav nav-list element-list">
         <li class="nav-header">Elements</li>
