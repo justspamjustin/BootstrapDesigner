@@ -13,7 +13,7 @@
         return PrimaryButtonElementTemplate.__super__.constructor.apply(this, arguments);
       }
 
-      PrimaryButtonElementTemplate.prototype.template = "<input class=\"input element\" type=\"text\" placeholder=\"{{placeholderText}}\" value=\"{{text}}\" style=\"width:{{width}};font-size:{{fontSize}};height:{{height}};top:{{y}};left:{{x}};z-index:{{z-index}};\"/>";
+      PrimaryButtonElementTemplate.prototype.template = "<input class=\"input element\" type=\"text\" placeholder=\"{{placeholderText}}\" value=\"{{text}}\"/>";
 
       return PrimaryButtonElementTemplate;
 

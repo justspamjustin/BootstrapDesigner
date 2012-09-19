@@ -56,11 +56,11 @@
       };
 
       ElementView.prototype.events = {
-        'click': 'onClickElement',
-        'mousedown': 'onMouseDownElement'
+        'click': 'onClick',
+        'mousedown .element': 'onMouseDownElement'
       };
 
-      ElementView.prototype.onClickElement = function(e) {
+      ElementView.prototype.onClick = function(e) {
         if (this.model.get('_displayType') === 'Preview') {
           return this.trigger('addElement', this.model);
         }
@@ -68,8 +68,8 @@
 
       ElementView.prototype.onMouseDownElement = function() {
         if (this.model.get('_displayType') === 'Canvas') {
-          this.model.setAsSelected();
-          return this.trigger('selected', this.model);
+          this.$('.element').addClass('dragging');
+          return this.trigger('dragging', this.model);
         }
       };
 

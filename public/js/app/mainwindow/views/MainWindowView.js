@@ -21,7 +21,8 @@
       };
 
       MainWindowView.prototype.viewDidRender = function() {
-        return this.renderToolbar();
+        this.renderToolbar();
+        return this.resizeCanvas();
       };
 
       MainWindowView.prototype.renderToolbar = function() {
@@ -30,6 +31,11 @@
         });
         this.toolbarView.render();
         return this.toolbarView.on('addElement', this.addElementToCanvas, this);
+      };
+
+      MainWindowView.prototype.resizeCanvas = function() {
+        this.$('#canvas').css('height', $(window).height());
+        return this.$('#canvas').css('width', $(window).width() - this.$('#toolbar').outerWidth());
       };
 
       MainWindowView.prototype.addElementToCanvas = function(model) {
@@ -44,10 +50,49 @@
         elementView.on('selected', function(model) {
           return _this.toolbarView.setCurrentSelectedElement(model);
         });
+        elementView.on('dragging', function(model) {
+          return _this.draggingModel = model;
+        });
         $(elementView.render().el).appendTo(this.$('#canvas'));
         return model.on('change', function() {
           return elementView.render();
         });
+      };
+
+      MainWindowView.prototype.events = {
+        'click': 'onClick',
+        'mouseup': 'onMouseUp',
+        'mousemove': 'onMouseMove'
+      };
+
+      MainWindowView.prototype.onClick = function() {
+        return this.$('.selected').removeClass('selected');
+      };
+
+      MainWindowView.prototype.onMouseUp = function(e) {
+        var left, top;
+        if (this.$('.dragging').length > 0) {
+          top = e.clientY - this.$('#canvas').position().top;
+          left = e.clientX - this.$('#canvas').position().left;
+          this.draggingModel.set('y', top);
+          this.draggingModel.set('x', left);
+          this.$('.dragging').removeClass('dragging');
+          this.draggingModel.setAsSelected();
+          return this.toolbarView.setCurrentSelectedElement(this.draggingModel);
+        }
+      };
+
+      MainWindowView.prototype.onMouseMove = function(e) {
+        var left, top;
+        e.preventDefault();
+        if (this.$('.dragging').length > 0) {
+          top = e.clientY - this.$('#canvas').position().top;
+          left = e.clientX - this.$('#canvas').position().left;
+          return this.$('.dragging').css({
+            top: top,
+            left: left
+          });
+        }
       };
 
       return MainWindowView;
