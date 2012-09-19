@@ -22,6 +22,7 @@ define ['framework/View'], (View) ->
         top: @parseForNumber(@model.get('top')),
         width: @parseForNumber(@model.get('width')),
         height: @parseForNumber(@model.get('height')),
+        'font-size': @parseForNumber(@model.get('font-size')),
         'z-index': @model.get('z-index')
       })
       if(@model.get('_selected'))

@@ -5,6 +5,7 @@ define ['framework/Model'], (Model) ->
       top: 100,
       width: 'inherit',
       height: 'inherit',
+      'font-size': 14,
       'z-index':0
 
     initialize: (opts)->

@@ -40,6 +40,7 @@
           top: this.parseForNumber(this.model.get('top')),
           width: this.parseForNumber(this.model.get('width')),
           height: this.parseForNumber(this.model.get('height')),
+          'font-size': this.parseForNumber(this.model.get('font-size')),
           'z-index': this.model.get('z-index')
         });
         if (this.model.get('_selected')) {
