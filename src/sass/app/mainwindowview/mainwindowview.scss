@@ -1,0 +1,18 @@
+#main {
+  margin-top: 40px;
+  #toolbar {
+    float: left;
+    margin: 50px 20px 20px 20px;
+    width: 250px;
+  }
+  #canvas {
+    float: left;
+    position: relative;
+    .element {
+      position: absolute;
+      &.selected {
+        outline: dashed 1px #000;
+      }
+    }
+  }
+}
